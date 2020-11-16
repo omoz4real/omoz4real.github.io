@@ -5,6 +5,7 @@
           "theme_color": "#fff",
           "short_name": "Omos Website",
           "name": "Omos Aziegbe",
+          "start_url": "index.html",
           "description": "Omos Aziegbe's Personal Website",
           "lang": "en-US",
           "icons": [
@@ -48,6 +49,5 @@
             "sizes": "512x512",
             "type": "image/png"
           }
-          ],
-          "start_url": "index.html?launcher=true",
+          ]
           }
