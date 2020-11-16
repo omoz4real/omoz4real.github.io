@@ -5,7 +5,8 @@
           "theme_color": "#fff",
           "short_name": "Omos Website",
           "name": "Omos Aziegbe",
-          "start_url": "index.html",
+          "scope": "/",
+          "start_url": "/",
           "description": "Omos Aziegbe's Personal Website",
           "lang": "en-US",
           "icons": [
