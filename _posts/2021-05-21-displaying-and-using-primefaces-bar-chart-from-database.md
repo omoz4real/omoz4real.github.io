@@ -1,4 +1,4 @@
----ation
+---
 layout: post
 title: "Displaying and Using PrimeFaces Bar chart From a Jakarta EE persistence application"
 date: 2021-05-21
