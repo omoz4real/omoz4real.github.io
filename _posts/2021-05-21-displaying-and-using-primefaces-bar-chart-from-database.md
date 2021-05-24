@@ -566,4 +566,4 @@ When the application is completed and built, the Bar Chart should look like the 
 
 ![PrimeFaces Barchart](https://omoz4real.github.io/img/icons/barchart.png)
 
-Note: The Primefaces version used in this application is 10.0.0 and the application code for primefaces changes often and it's sometimes different from other versions.
+Note: The Primefaces version used in this application is 10.0.0 and the application code for primefaces sometimes changes.
