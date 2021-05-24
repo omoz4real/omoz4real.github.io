@@ -219,7 +219,7 @@ public class Customer implements Serializable {
         this.postalCode = postalCode;
     }
     
-// Note that getters and setters method, hashCode, equals and toString have been ommitted
+// Note that getters and setters, hashCode, equals and toString method have been ommitted
     
 }
 ```
