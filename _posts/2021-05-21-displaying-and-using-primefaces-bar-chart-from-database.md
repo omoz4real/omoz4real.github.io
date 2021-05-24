@@ -565,3 +565,5 @@ Finally the JSF (Faces) page to display the bar chart component looks like this
 When the application is completed and built, the Bar Chart should look like the figure below:
 
 ![PrimeFaces Barchart](https://omoz4real.github.io/img/icons/barchart.png)
+
+Note: The Primefaces version used in this application is 10.0.0 and the application code for primefaces changes often and it's sometime different from other versions.
