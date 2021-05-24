@@ -562,4 +562,6 @@ Finally the JSF (Faces) page to display the bar chart component looks like this
 
 ```
 
+When the application is completed and built, the Bar Chart should look like the figure below:
 
+![PrimeFaces Barchart](/path/to/barchart.png)
