@@ -533,23 +533,12 @@ Finally the JSF (Faces) page to display the bar chart component looks like this
     </h:head>
     <h:body>
         <h:form>
-
             <header>
-                <nav class="clear">
-                    <ul>
-                        <li><h:commandLink  action="index.xhtml?faces-redirect=true" immediate="true" value="Add New Student"/></li>
-                        <li><h:commandLink  action="student.xhtml?faces-redirect=true" immediate="true" value="View All Students"/></li>
-                        <li><h:commandLink action="search.xhtml?faces-redirect=true" immediate="true" value="Search"/></li>
-                        <li><h:commandLink action="chart.xhtml?faces-redirect=true" immediate="true" value="Insight"/></li>
-                        <li><h:commandLink  value="Log Out" action="#{studentBackingBean.logout}" immediate="true"></h:commandLink></li>
-                        <li><h:commandLink value="Welcome, #{login.mail} " styleClass="login" action="#"/>   </li>
-                    </ul>
+                <nav class="clear">                 
                 </nav>
-                <p:graphicImage name="logo_banner.gif" library="images" style="margin-left: 10px"/>
             </header>
 
             <div class="card" style="border: 0px; height: 800px; width:85%; margin-left: 15px">
-
                 <p:barChart model="#{chartBean.barModel}"   />
             </div>
         </h:form>
