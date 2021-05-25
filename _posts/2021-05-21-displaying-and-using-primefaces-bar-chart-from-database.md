@@ -294,9 +294,6 @@ public abstract class AbstractFacade<T> {
 
     public List<String> findCustomersForChart() {
         Query query = getEntityManager().createQuery("SELECT DISTINCT (c.courseName) FROM Customer c WHERE c.courseName is not NULL ORDER BY c.courseName ASC");
-//        List<String> courseName = Arrays.asList("CRC - CPR", "CRC - SFA", "CRC - EFA", "CRC - SFA Recert", "CRC - CPR Recert", "CRC - SCCFA-B", "CRC - SFA Blended", "CRC - SCCFA-B Recert", "HSF - BLS", "HSF - BLS Recert");
-//        //String courseName = "CRC - CPR";
-//        query.setParameter("courseName", courseName);
         List<String> chartList = query.getResultList();
         return chartList;
     }
