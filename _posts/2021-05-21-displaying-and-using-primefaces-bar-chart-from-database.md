@@ -11,22 +11,7 @@ The Entity Class for the application looks like this
 package lifesavers.database.entity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+//import statements ommitted for brevity
 //import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -40,40 +25,6 @@ import javax.validation.constraints.Size;
 @NamedQuery(name = "Customer.findAll", query = "SELECT c FROM Customer c")
 , @NamedQuery(name = "Customer.findById", query = "SELECT c FROM Customer c WHERE c.id = :id")
 , @NamedQuery(name = "Customer.findByFirstname", query = "SELECT c FROM Customer c WHERE c.firstname = :firstname")
-, @NamedQuery(name = "Customer.findByMiddlename", query = "SELECT c FROM Customer c WHERE c.middlename = :middlename")
-, @NamedQuery(name = "Customer.findByLastname", query = "SELECT c FROM Customer c WHERE c.lastname = :lastname")
-, @NamedQuery(name = "Customer.findByPrimaryEmail", query = "SELECT c FROM Customer c WHERE c.primaryEmail = :primaryEmail")
-, @NamedQuery(name = "Customer.findBySecondaryEmail", query = "SELECT c FROM Customer c WHERE c.secondaryEmail = :secondaryEmail")
-, @NamedQuery(name = "Customer.findByPhone", query = "SELECT c FROM Customer c WHERE c.phone = :phone")
-, @NamedQuery(name = "Customer.findByAddress", query = "SELECT c FROM Customer c WHERE c.address = :address")
-, @NamedQuery(name = "Customer.findByCity", query = "SELECT c FROM Customer c WHERE c.city = :city")
-, @NamedQuery(name = "Customer.findByProvince", query = "SELECT c FROM Customer c WHERE c.province = :province")
-, @NamedQuery(name = "Customer.findByPostalCode", query = "SELECT c FROM Customer c WHERE c.postalCode = :postalCode")
-, @NamedQuery(name = "Customer.findByCompanyName", query = "SELECT c FROM Customer c WHERE c.companyName = :companyName")
-, @NamedQuery(name = "Customer.findByNotes", query = "SELECT c FROM Customer c WHERE c.notes = :notes")
-, @NamedQuery(name = "Customer.findByDob", query = "SELECT c FROM Customer c WHERE c.dob = :dob")
-, @NamedQuery(name = "Customer.findByCourseNumber", query = "SELECT c FROM Customer c WHERE c.courseNumber = :courseNumber")
-, @NamedQuery(name = "Customer.findByCourseDate", query = "SELECT c FROM Customer c WHERE c.courseDate = :courseDate")
-, @NamedQuery(name = "Customer.findByCourseName", query = "SELECT c FROM Customer c WHERE c.courseName = :courseName")
-, @NamedQuery(name = "Customer.findByCprLevel", query = "SELECT c FROM Customer c WHERE c.cprLevel = :cprLevel")
-, @NamedQuery(name = "Customer.findByTrainingLocation", query = "SELECT c FROM Customer c WHERE c.trainingLocation = :trainingLocation")
-, @NamedQuery(name = "Customer.findByCourseTime", query = "SELECT c FROM Customer c WHERE c.courseTime = :courseTime")
-, @NamedQuery(name = "Customer.findByCurrentCardExpDate", query = "SELECT c FROM Customer c WHERE c.currentCardExpDate = :currentCardExpDate")
-, @NamedQuery(name = "Customer.findByGrade", query = "SELECT c FROM Customer c WHERE c.grade = :grade")
-, @NamedQuery(name = "Customer.findByStatus", query = "SELECT c FROM Customer c WHERE c.status = :status")
-, @NamedQuery(name = "Customer.findByInstructorName1", query = "SELECT c FROM Customer c WHERE c.instructorName1 = :instructorName1")
-, @NamedQuery(name = "Customer.findByInstructorName2", query = "SELECT c FROM Customer c WHERE c.instructorName2 = :instructorName2")
-, @NamedQuery(name = "Customer.findByNeedCard", query = "SELECT c FROM Customer c WHERE c.needCard = :needCard")
-, @NamedQuery(name = "Customer.findByCrchsfRoster", query = "SELECT c FROM Customer c WHERE c.crchsfRoster = :crchsfRoster")
-, @NamedQuery(name = "Customer.findByCrchsfSubmitted", query = "SELECT c FROM Customer c WHERE c.crchsfSubmitted = :crchsfSubmitted")
-, @NamedQuery(name = "Customer.findByQbSubmitted", query = "SELECT c FROM Customer c WHERE c.qbSubmitted = :qbSubmitted")
-, @NamedQuery(name = "Customer.findByPromoCode", query = "SELECT c FROM Customer c WHERE c.promoCode = :promoCode")
-, @NamedQuery(name = "Customer.findByPrice", query = "SELECT c FROM Customer c WHERE c.price = :price")
-, @NamedQuery(name = "Customer.findByDiscount", query = "SELECT c FROM Customer c WHERE c.discount = :discount")
-, @NamedQuery(name = "Customer.findByDiscountSaved", query = "SELECT c FROM Customer c WHERE c.discountSaved = :discountSaved")
-, @NamedQuery(name = "Customer.findByGst", query = "SELECT c FROM Customer c WHERE c.gst = :gst")
-, @NamedQuery(name = "Customer.findByPurchasedMask", query = "SELECT c FROM Customer c WHERE c.purchasedMask = :purchasedMask")
-, @NamedQuery(name = "Customer.findByTotalWithGst", query = "SELECT c FROM Customer c WHERE c.totalWithGst = :totalWithGst")
 , @NamedQuery(name = "Customer.findByPaymentType", query = "SELECT c FROM Customer c WHERE c.paymentType = :paymentType")})
 public class Customer implements Serializable {
     
@@ -230,13 +181,7 @@ The EJB Abstract Facade contains the CRUD methods auto generated by Netbeans. Tw
 package lifesavers.database.session;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
-import javax.persistence.TemporalType;
-import lifesavers.database.entity.Customer;
+//other import statements ommitted for brevity
 
 /**
  *
@@ -347,26 +292,7 @@ package lifesavers.database.clientbean;
 
 import javax.inject.Named;
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
-import lifesavers.database.session.CustomerFacade;
-import org.primefaces.model.chart.ChartSeries;
-import org.primefaces.model.charts.ChartData;
-import org.primefaces.model.charts.axes.cartesian.CartesianScales;
-import org.primefaces.model.charts.axes.cartesian.linear.CartesianLinearAxes;
-import org.primefaces.model.charts.axes.cartesian.linear.CartesianLinearTicks;
-import org.primefaces.model.charts.bar.BarChartDataSet;
-import org.primefaces.model.charts.bar.BarChartModel;
-import org.primefaces.model.charts.bar.BarChartOptions;
-import org.primefaces.model.charts.optionconfig.animation.Animation;
-import org.primefaces.model.charts.optionconfig.legend.Legend;
-import org.primefaces.model.charts.optionconfig.legend.LegendLabel;
-import org.primefaces.model.charts.optionconfig.title.Title;
-
+//other import statements ommitted for brevity
 /**
  *
  * @author omozegieaziegbe
