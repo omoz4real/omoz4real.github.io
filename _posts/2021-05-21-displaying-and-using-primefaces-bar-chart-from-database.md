@@ -7,7 +7,7 @@ This blog post is about displaying a bar chart from a database in a Jakarta Face
 
 The Entity Class for the application looks like this
 
-```
+```java
 package lifesavers.database.entity;
 
 import java.io.Serializable;
@@ -39,116 +39,42 @@ public class Customer implements Serializable {
     @Size(min = 1, max = 245)
     @Column(name = "firstname", length = 245)
     private String firstname;
-    
-    @Basic(optional = true)
-    @Column(name = "middlename", length = 245)
+ 
     private String middlename;
-    
-    @Basic(optional = true)
-    @NotNull
-    @Size(min = 1, max = 245)
-    @Column(name = "lastname", length = 245)
     private String lastname;
-    
-    @Basic(optional = true)
-    @NotNull
-    @Size(min = 1, max = 245)
-    @Column(name = "primary_email", length = 245)
     private String primaryEmail;
-    @Size(max = 45)
-    @Column(name = "secondary_email", length = 45)
     private String secondaryEmail;
-    // @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message="Invalid phone/fax format, should be as xxx-xxx-xxxx")//if the field contains phone or fax number consider using this annotation to enforce field validation
-    @Basic(optional = true)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "phone", length = 45)
     private String phone;
-    @Basic(optional = true)
-    //@NotNull
-    //@Size(min = 1, max = 245)
-    @Column(name = "address", length = 245)
     private String address;
-    @Size(max = 45)
-    @Column(name = "city", length = 45)
     private String city;
-    @Size(max = 45)
-    @Column(name = "province", length = 45)
     private String province;
-    @Basic(optional = true)
-    //@NotNull
-    //@Size(min = 1, max = 45)
-    @Column(name = "postal_code", length = 45)
     private String postalCode;
-    @Size(max = 245)
-    @Column(name = "company_name", length = 245)
     private String companyName;
-    @Size(max = 245)
-    @Column(name = "notes", length = 245)
     private String notes;
-    @Basic(optional = false)
-    @Column(name = "dob")
-    @Temporal(TemporalType.DATE)
     private Date dob;
-    @Size(max = 45)
-    @Column(name = "course_number", length = 45)
     private String courseNumber;
-    @Column(name = "course_date")
     @Temporal(TemporalType.DATE)
     private Date courseDate;
-    @Size(max = 45)
-    @Column(name = "course_name", length = 45)
     private String courseName;
-    @Size(max = 45)
-    @Column(name = "cpr_level", length = 45)
     private String cprLevel;
-    @Size(max = 45)
-    @Column(name = "training_location", length = 45)
     private String trainingLocation;
-    @Size(max = 245)
-    @Column(name = "course_time", length = 245)
     private String courseTime;
-    @Size(max = 45)
-    @Column(name = "current_card_exp_date", length = 45)
     private String currentCardExpDate;
-    @Size(max = 45)
-    @Column(name = "grade", length = 45)
     private String grade;
-    @Size(max = 45)
-    @Column(name = "status", length = 45)
     private String status;
-    @Size(max = 245)
-    @Column(name = "instructor_name_1", length = 245)
     private String instructorName1;
-    @Size(max = 245)
-    @Column(name = "instructor_name_2", length = 245)
     private String instructorName2;
-    @Column(name = "need_card")
     private Boolean needCard;
-    @Column(name = "crchsfRoster")
     private Boolean crchsfRoster;
-    @Column(name = "crchsfSubmitted")
     private Boolean crchsfSubmitted;
-    @Column(name = "qbSubmitted")
     private Boolean qbSubmitted;
-    @Size(max = 45)
-    @Column(name = "promo_code", length = 45)
     private String promoCode;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "price", precision = 8, scale = 2)
     private BigDecimal price;
-    @Column(name = "discount")
     private Integer discount;
-    @Column(name = "discount_saved", precision = 8, scale = 2)
     private BigDecimal discountSaved;
-    @Column(name = "purchased_mask", precision = 8, scale = 2)
     private BigDecimal purchasedMask;
-    @Column(name = "gst", precision = 8, scale = 2)
     private BigDecimal gst;
-    @Column(name = "total_with_gst", precision = 8, scale = 2)
     private BigDecimal totalWithGst;
-    @Size(max = 245)
-    @Column(name = "payment_type", length = 245)
     private String paymentType;
     
     
