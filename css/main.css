@@ -38,6 +38,11 @@ nav a {
 .blurb{
 	margin-top: 20px;
 	}
+.blurb h1, .container h1 {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	}
+
 a {
     text-decoration: none;
     color: #999;
@@ -95,11 +100,13 @@ ul.posts li {
     height: 140px !important;
     margin-left: 5px !important;
     }
-    
-    
+   
     ol, ul {
     padding-left: 0.05rem !important;
 }
+	.blurb h1 , .container h1{
+		font-size: 1.8em !important;
+	}
 }
 
 
