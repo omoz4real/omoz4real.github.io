@@ -1,6 +1,6 @@
 body {
     margin: 60px auto;
-    width: 90%;
+    width: 80%;
 }
 nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
@@ -34,7 +34,7 @@ footer {
 }
 
 ul.posts { 
-    margin: 20px auto 40px; 
+    margin: 20px auto; 
     font-size: 1.5em;
 }
 
@@ -44,8 +44,8 @@ ul.posts li{
 
 ul.posts li {
     list-style: none;
-    width: 32%;
-   margin: 20px 10px;
+    width: 30%;
+   margin: 10px;
   position: relative;
   display: flex;
   flex-direction: column;
