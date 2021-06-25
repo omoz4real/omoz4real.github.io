@@ -71,6 +71,10 @@ ul.posts li {
     nav ul li{
     margin-right: 10px;
 }
+    
+    ol, ul {
+    padding-left: 0.5rem;
+}
 }
 
 
