@@ -61,7 +61,6 @@ ul.posts li {
 
 @media (max-width: 480px) {
     body {
-    margin: 20px auto;
     width: 100% !important;
 }
  ul.posts li{
