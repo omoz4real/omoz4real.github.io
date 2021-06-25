@@ -68,12 +68,9 @@ ul.posts li {
     width: 98% !important;
     }
     
-    nav ul li{
-    margin-right: 10px;
-}
     
     ol, ul {
-    padding-left: 0.5rem !important;
+    padding-left: 0.2rem !important;
 }
 }
 
