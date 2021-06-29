@@ -39,44 +39,18 @@ public class Customer implements Serializable {
     @Size(min = 1, max = 245)
     @Column(name = "firstname", length = 245)
     private String firstname;
- 
     private String middlename;
     private String lastname;
     private String primaryEmail;
-    private String secondaryEmail;
     private String phone;
     private String address;
-    private String city;
-    private String province;
     private String postalCode;
-    private String companyName;
-    private String notes;
-    private Date dob;
     private String courseNumber;
     @Temporal(TemporalType.DATE)
     private Date courseDate;
     private String courseName;
-    private String cprLevel;
-    private String trainingLocation;
-    private String courseTime;
-    private String currentCardExpDate;
-    private String grade;
-    private String status;
-    private String instructorName1;
-    private String instructorName2;
-    private Boolean needCard;
-    private Boolean crchsfRoster;
-    private Boolean crchsfSubmitted;
-    private Boolean qbSubmitted;
-    private String promoCode;
     private BigDecimal price;
-    private Integer discount;
-    private BigDecimal discountSaved;
-    private BigDecimal purchasedMask;
-    private BigDecimal gst;
-    private BigDecimal totalWithGst;
-    private String paymentType;
-    
+    private BigDecimal totalWithGst;  
     
     public Customer() {
     }
@@ -85,7 +59,7 @@ public class Customer implements Serializable {
         this.id = id;
     }
     
-    public Customer(Integer id, String firstname, String middlename, String lastname, String primaryEmail, String phone, String address, String postalCode) {
+    public Customer(Integer id, String firstname, String middlename, String lastname, String primaryEmail, String phone, String address, String postalCode,String courseNumber, Date courseDate, String courseName, BigDecimal price, BigDecimal totalWithGst) {
         this.id = id;
         this.firstname = firstname;
         this.middlename = middlename;
@@ -94,6 +68,11 @@ public class Customer implements Serializable {
         this.phone = phone;
         this.address = address;
         this.postalCode = postalCode;
+        this.courseNumber = courseNumber;
+        this.courseDate = courseDate;
+        this.courseName = courseName;
+        this.price = price;
+        this.totalWithGst = totalWithGst;
     }
     
 // Note that getters and setters, hashCode, equals and toString method have been ommitted
@@ -251,14 +230,11 @@ public class ChartBean implements Serializable {
         List<String> labels = new ArrayList<>();
         
         //figures to be displayed on the Y-axis
-        for (Number o : customerList) {
-            customerMap.add(o);
-        }
+        customerList.forEach((final Number a) -> customerMap.add(a));
+        
         //labels to used on the X-axis
-        for (String a : customerChart) {
-            labels.add(a);
-        }
-
+        customerChart.forEach((final String a) -> labels.add(a));
+        
         barModel = new BarChartModel();
         ChartData data = new ChartData();
         BarChartDataSet barDataSet = new BarChartDataSet();
@@ -268,36 +244,11 @@ public class ChartBean implements Serializable {
 
         List<String> bgColor = new ArrayList<>();
         bgColor.add("rgba(255, 99, 132, 0.2)");
-        bgColor.add("rgba(255, 159, 64, 0.2)");
-        bgColor.add("rgba(255, 205, 86, 0.2)");
-        bgColor.add("rgba(75, 192, 192, 0.2)");
-        bgColor.add("rgba(54, 162, 235, 0.2)");
-        bgColor.add("rgba(153, 102, 255, 0.2)");
-        bgColor.add("rgba(201, 203, 207, 0.2)");
-        bgColor.add("rgb(41, 162, 190)");
-        bgColor.add("rgb(5, 205, 68)");
-        bgColor.add("rgb(135, 109, 92)");
-        bgColor.add("rgb(14, 162, 25)");
-        bgColor.add("rgb(175, 205, 83)");
-        bgColor.add("rgb(185, 199, 172)");
-        bgColor.add("rgb(54, 162, 235)");
-        bgColor.add("rgb(195, 105, 196)");
-        bgColor.add("rgb(245, 99, 132)");
-        bgColor.add("rgb(184, 162, 100)");
-        bgColor.add("rgb(255, 205, 86)");
-        bgColor.add("rgb(215, 199, 112)");
-        bgColor.add("rgb(104, 102, 111)");
-        bgColor.add("rgb(155, 105, 186)");
         barDataSet.setBackgroundColor(bgColor);
 
         List<String> borderColor = new ArrayList<>();
         borderColor.add("rgb(255, 99, 132)");
-        borderColor.add("rgb(255, 159, 64)");
-        borderColor.add("rgb(255, 205, 86)");
-        borderColor.add("rgb(75, 192, 192)");
-        borderColor.add("rgb(54, 162, 235)");
-        borderColor.add("rgb(153, 102, 255)");
-        borderColor.add("rgb(201, 203, 207)");
+        
         barDataSet.setBorderColor(borderColor);
         barDataSet.setBorderWidth(1);
 
