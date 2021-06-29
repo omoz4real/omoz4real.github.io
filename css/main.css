@@ -86,12 +86,11 @@ ul.posts li {
   border: none;
   box-shadow: 0 12px 15px rgba(0, 0, 0, 0.1), 0 17px 50px rgba(0, 0, 0, 0.1);
   border-radius: 0.375rem;
-    padding: 10px;
-    height: 200px;
+    padding: 20px 10px 30px 10px ;
+    height: 100%;
 }
 
 @media (min-width: 481px) and (max-width:768px) {
-
 	body {
     width: 100% !important;
 }
@@ -107,7 +106,6 @@ ul.posts li {
 	margin-bottom: 10px;
 		padding: 20px 0 !important;
 	}
-
 }
 
 @media (max-width: 480px) {
@@ -120,7 +118,6 @@ ul.posts li {
     height: 140px !important;
     margin-left: 5px !important;
     }
-   
     ol, ul {
     padding-left: 0.05rem !important;
 }
@@ -131,5 +128,3 @@ ul.posts li {
 		padding: 20px 0 !important;
 	}
 }
-
-
