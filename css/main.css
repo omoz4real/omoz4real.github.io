@@ -90,6 +90,23 @@ ul.posts li {
     height: 200px;
 }
 
+@media (min-width: 481px) and (max-width:768px) {
+
+	body {
+    width: 100% !important;
+}
+ ul.posts li{
+    display: inline-block !important;
+    width: 95% !important;
+    height: 100% !important;
+    margin-left: 5px !important;
+    }
+   
+    ol, ul {
+    padding-left: 0.05rem !important;
+}
+}
+
 @media (max-width: 480px) {
     body {
     width: 100% !important;
