@@ -101,10 +101,13 @@ ul.posts li {
     height: 100% !important;
     margin-left: 5px !important;
     }
-   
-    ol, ul {
-    padding-left: 0.05rem !important;
-}
+   .blurb h1 , .container h1{
+		font-size: 2em !important;
+		margin-top: 10px;
+	margin-bottom: 10px;
+		padding: 20px 0 !important;
+	}
+
 }
 
 @media (max-width: 480px) {
