@@ -24,8 +24,7 @@ import java.io.Serializable;
 @NamedQueries({
 @NamedQuery(name = "Customer.findAll", query = "SELECT c FROM Customer c")
 , @NamedQuery(name = "Customer.findById", query = "SELECT c FROM Customer c WHERE c.id = :id")
-, @NamedQuery(name = "Customer.findByFirstname", query = "SELECT c FROM Customer c WHERE c.firstname = :firstname")
-, @NamedQuery(name = "Customer.findByPaymentType", query = "SELECT c FROM Customer c WHERE c.paymentType = :paymentType")})
+, @NamedQuery(name = "Customer.findByFirstname", query = "SELECT c FROM Customer c WHERE c.firstname = :firstname")})
 public class Customer implements Serializable {
     
     private static final long serialVersionUID = 1L;
