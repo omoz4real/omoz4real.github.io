@@ -21,7 +21,7 @@
 title: Omos Tech Blog
 email: omoz4real@gmaildotcom
 description: Personal blog about my experiences with software frameworks and technologies including Java/Jakarta EE, HTML/CSS/Javascript, Wordpress, Ionic with Angular and many more.
-baseurl: "/omoz4real" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://omoz4real.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: OAziegbe
 github_username:  omoz4real
