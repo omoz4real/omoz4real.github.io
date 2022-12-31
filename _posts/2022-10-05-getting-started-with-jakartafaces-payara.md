@@ -4,8 +4,7 @@ title: "Getting Started with Jakarta Faces 4 on Payara Server "
 date: 2022-10-05 
 ---
 
-This blog post is about getting started with Jakarta Faces 4.0 on the Payara application server. To get
-started with Faces 4.0 on with of Jakarta EE 10 on payara. Currently at the time of writing this blog post (05/10/2022), The version of payara server that is
+This blog post is about getting started with Jakarta Faces 4.0 on the Payara application server. Currently at the time of writing this blog post (05/10/2022), The version of payara server that is
 compatible with Jakarta EE 10 and Faces 4.0 is Payara Server Community 6.2022.1 Alpha 4 which can be downloaded from the Payara Fish download
 page located at [Payara platform community edition](https://www.payara.fish/downloads/payara-platform-community-edition/). 
 
