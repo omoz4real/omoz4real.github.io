@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Securing a JavaServer Faces Application - Java/Jakarta EE 8 "
+title: "Securing a JavaServer Faces Application - Java/Jakarta EE 8 - In Progress (Not Yet Completed)"
 date: 2022-09-09 
 ---
 This blog post is about securing a Java Server Faces application that can be deployed to a Java/Jakarta EE 8 compliant
