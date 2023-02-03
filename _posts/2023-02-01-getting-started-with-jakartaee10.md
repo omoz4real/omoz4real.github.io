@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Getting Started with Jakarta EE 10 with Netbeans "
+title: "Getting Started with Jakarta EE 10 in Netbeans "
 date: 2023-02-01 
 ---
 
