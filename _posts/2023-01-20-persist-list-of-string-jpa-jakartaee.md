@@ -7,6 +7,7 @@ date: 2023-01-20
 Sometimes you might want to store a List of string as one column field in your database. The following code snippet 
 helped me achieve this. First define the Entity Class as shown below
 
+```java
 public class Customer implements Serializable {
     
     private static final long serialVersionUID = 1L;
@@ -42,20 +43,13 @@ public class Customer implements Serializable {
     @Convert(converter = StringListConverter.class)
     List<String> previousCourse;
 
+```
+
 Notice the field in the entity class declared as a List - List<String> previousCourse. Next, we add a converter to convert
-the database column to a list of string in your java Object and like wise the Java object will be stored in the database column
+the database column to a list of string in the java Object and like wise the Java object will be stored in the database column
 as james,john,jerry. The following code below shows the Converter class
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package lifesavers.database.clientbean;
-
-/**
- *
- * @author omozegieaziegbe
- */
+```java
 import java.util.Arrays;
 import java.util.List;
 
@@ -81,10 +75,13 @@ public class StringListConverter implements AttributeConverter<List<String>, Str
     }
 }
 
+```
 Finally, use the Converter in the entity field like this
 
+```java
     @Column(name = "previousCourse", length = 245)
     @Convert(converter = StringListConverter.class)
     List<String> previousCourse;
 
+```
 Another way to do this is to use the @ElementCollection in JPA.
