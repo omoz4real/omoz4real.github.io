@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Persist List of String in JPA - Jakarta EE "
+title: "Persist List of String with JPA  "
 date: 2023-01-20 
 ---
 
