@@ -38,16 +38,14 @@ public class Customer implements Serializable {
     @Column(name = "primary_email", length = 245)
     private String primaryEmail;
     
-//    @Size(max = 245)
-//    @Column(name = "previousCourse", length = 245)
-    @Convert(converter = StringListConverter.class)
+    @Size(max = 245)
+    @Column(name = "previousCourse", length = 245)
     List<String> previousCourse;
 
 ```
 
-Notice the field in the entity class declared as a List - List<String> previousCourse. Next, we add a converter to convert
-the database column to a list of string in the java Object and like wise the Java object will be stored in the database column
-as james,john,jerry. The following code below shows the Converter class
+Next, Add a converter to convert the database column to a list of string in the java Object and like wise the Java object will be stored in the database column
+as Physics;Biology;Chemistry. The following code below shows the Converter class
 
 ```java
 import java.util.Arrays;
