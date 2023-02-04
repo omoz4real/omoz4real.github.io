@@ -4,10 +4,10 @@ title: "Getting Started with Jakarta EE 10 in Netbeans "
 date: 2023-02-01 
 ---
 
+Jakarta EE 10 was releasesd with three different profiles - **Full platform profile**, **Web Profile** and **Core Profile**. To get started with Jakarta EE 10 in Netbeans, 
+Create Maven project by going to File > New Project then choose Java with Maven > Web Application and complete the wizard. Next include the following dependency in the pom.xml
 
-To get started with Jakarta EE 10 in Netbeans, Create Maven project by going to File > New Project then choose
-Java with Maven > Web Application and complete the wizard. Next include the following dependency in the pom.xml
-of the project.
+To use the Full Platform profile in the project. Add the following dependency to the pom.xml file
 
 ```java
 
@@ -20,7 +20,31 @@ of the project.
 
 ```
 
-When this dependency is added, The Jakarta EE 10 platform full profile is available to be used in the project.
+To use the Web profile in the project. Add the following dependency to the pom.xml file
+
+```java
+
+<dependency>
+    <groupId>jakarta.platform</groupId>
+    <artifactId>jakarta.jakartaee-web-api</artifactId>
+    <version>10.0.0</version>
+    <scope>provided</scope>
+</dependency>
+
+```
+
+To use the Core profile in the project. Add the following dependency to the pom.xml file
+
+```java
+
+<dependency>
+  <groupId>jakarta.platform</groupId>
+  <artifactId>jakarta.jakartaee-core-api</artifactId>
+  <version>10.0.0</version>
+  <scope>provided</scope>
+</dependency>
+
+```
 
 
 
