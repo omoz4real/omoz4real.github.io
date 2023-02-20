@@ -368,23 +368,23 @@ public class EmployeeResource {
 ```
 In the EmployeeResource.java class shown above,
 
-*We use the**@Path** annotation defined in the class to specify the URI path to which the resource responds.
+* We use the**@Path** annotation defined in the class to specify the URI path to which the resource responds.
 
-*We use the **@Inject** to inject the EmployeeService. 
+* We use the **@Inject** to inject the EmployeeService. 
 
-*We annotate the **getAll()** method with the **@GET** annotation which corresponds to the HTTP GET Request method 
+* We annotate the **getAll()** method with the **@GET** annotation which corresponds to the HTTP GET Request method 
 which returns a list of Employee in JSON format. 
 
-*We annotate the **add(Employee employee)** method with the **@POST** annotation which corresponds to the HTTP POST Request method and 
+* We annotate the **add(Employee employee)** method with the **@POST** annotation which corresponds to the HTTP POST Request method and 
 is used to add a new Employee of JSON content type.
 
-*We annotate the **update(@PathParam("id") int id, Employee employee)** method with the **@PUT** annotation which corresponds to the HTTP PUT Request method and takes the ID of the 
+* We annotate the **update(@PathParam("id") int id, Employee employee)** method with the **@PUT** annotation which corresponds to the HTTP PUT Request method and takes the ID of the 
 Employee which is passed as a path parameter to the Request URI using the @PathParam annotation and updates an existing item with the ID passed to it as a path parameter passed to it in the Request URI.
 
-*We annotate the **getEmployee(@PathParam("id") int id)** method with the **@GET** annotation and also annotate this method with **@Path("{id}")** which returns information
+* We annotate the **getEmployee(@PathParam("id") int id)** method with the **@GET** annotation and also annotate this method with **@Path("{id}")** which returns information
 of a specific employee based on the supplied ID given in the URI in plain text format using the **@Produces(MediaType.TEXT_PLAIN)** annotation.
 
-*We annotate the **delete(@PathParam("id") int id)** method with the **@DELETE** annotation which corresponds to HTTP DELETE Request method and deletes an Employee object
+* We annotate the **delete(@PathParam("id") int id)** method with the **@DELETE** annotation which corresponds to HTTP DELETE Request method and deletes an Employee object
 that matches the ID of the Employee passed to it as a path parameter in the Request URI.
  
 
