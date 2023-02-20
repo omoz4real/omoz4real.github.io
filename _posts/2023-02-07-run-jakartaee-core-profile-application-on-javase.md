@@ -6,21 +6,21 @@ date: 2023-02-20
 
 In this blog post, I want to explore running a Jakarta EE Core profile application on Java SE without an application server.
 Java/Jakarta Experts - Markus Karg, Rudy De Busscher and Francesco Marchioni have already blogged and demonstrated how to achieve 
-this on their blog respectively at https://headcrashing.wordpress.com/tag/java-se-bootstrap-api/, https://www.atbash.be/2023/01/05/run-your-jakarta-application-without-runtime/ 
-and http://www.mastertheboss.com/jboss-frameworks/resteasy/getting-started-with-jakarta-restful-services/. I wanted to take
+this on their blog respectively at [Coding Microservice From Scratch](https://headcrashing.wordpress.com/tag/java-se-bootstrap-api/){:target="_blank"}, [Run your Jakarta Application without Runtime](https://www.atbash.be/2023/01/05/run-your-jakarta-application-without-runtime/){:target="_blank"}
+and [Getting started with Jakarta RESTful Services](http://www.mastertheboss.com/jboss-frameworks/resteasy/getting-started-with-jakarta-restful-services/){:target="_blank"}. I wanted to take
 this further and explore the possibilities/ways to create a Jakarta REST CRUD application. This project is build using Netbeans, Maven and
 the Jakarta EE core profile.
 
 The Jakarta RESTful web service API built in this tutorial is for CRUD Operations (Create, Read, Update, Delete) which corresponds to the standard
 HTTP methods (POST, GET, PUT, DELETE) and in this blog post used for managing employee data. 
 
-The main advantage of this is that you can package your Jarkata REST application into a JAR file which can be executed almost anywhere.
+I believe the main advantage of this is that you can package your Jarkata REST application into a JAR file which can be executed almost anywhere.
 
 
 First, Create a Java with Maven > Java Application with Netbeans and add the following dependency to the pom.xml. 
 In addition to the Jakarta Core Profile, Dependencies to support JSON-B, JSON-P, HTTP Server, and Jersey + Weld integration is also added to the pom.xml file of the project and
 is explained more in details here by Rudy - [Run your Jakarta Application without Runtime](https://www.atbash.be/2023/01/05/run-your-jakarta-application-without-runtime/ "Run your Jakarta Application without Runtime"){:target="_blank"}. 
-. The project pom.xml file should look like this
+ The project pom.xml file should look like this
 
 ```xml
 
@@ -74,7 +74,6 @@ is explained more in details here by Rudy - [Run your Jakarta Application withou
     
      <profiles>
         <profile>
-            <!-- here mainly to know the total size of the app.-->
             <id>exec</id>
             <build>
                 <plugins>
@@ -268,11 +267,6 @@ public class EmployeeService {
         }
         employeeList.remove(employee);
     }
-
-//    public int updateEmployee(int empId, Employee emp) {
-//    employeeList.set(empId, emp);
-//    return emp.getId();
-//}
 
     public boolean update(Employee employee) {
         int index = employeeList.indexOf(employee);
