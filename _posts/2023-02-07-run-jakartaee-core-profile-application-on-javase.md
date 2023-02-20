@@ -104,7 +104,7 @@ is explained more in details here by Rudy - [Run your Jakarta Application withou
 </project>
 ```
 
-Next, Create the Java Class that extends the Application class in Jakarta REST. The Java Class created for this project is named ***JakartaRestConfiguration.java* and is shown below
+Next, Create the Java Class that extends the Application class in Jakarta REST. The Java Class created for this project is named **JakartaRestConfiguration.java** and is shown below
 
 ```java
 
