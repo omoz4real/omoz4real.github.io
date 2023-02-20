@@ -286,8 +286,17 @@ public class EmployeeService {
 
 ```
 
-Next, Create an **EmployeeResource.java** class that provides the REST API endpoints/URIs for the application. The EmployeeResource.java
-class should look like this
+Next, Create an **EmployeeResource.java** class that provides the REST API endpoints/URIs for the application. The Table below summarizes the URIs/Endpoints of the application.
+
+| METHOD      |              EndPoint/URI             | Description                      |
+| ----------- | ------------------------------------- | -------------------------------- |
+| GET         | http://localhost:8080/employees       | Return a list of all Employees   |
+| GET         | http://localhost:8080/employees/1     | Return an Employee whose ID is 1 |
+| POST        | http://localhost:8080/employees       | Create a new Employee resource   |
+| PUT         | http://localhost:8080/employees/1     | Update an Employee whose ID is 1 |
+| DELETE      | http://localhost:8080/employees/1     | Delete an Employee whose ID is 1 |
+ 
+The EmployeeResource.java class should look like this
 
 ```java
 
@@ -387,6 +396,7 @@ of a specific employee based on the supplied ID given in the URI in plain text f
 * We annotate the **delete(@PathParam("id") int id)** method with the **@DELETE** annotation which corresponds to HTTP DELETE Request method and deletes an Employee object
 that matches the ID of the Employee passed to it as a path parameter in the Request URI.
  
+
 
 
 I believe the main advantage of this is that you can package your Jarkata REST application into a JAR file which can be executed almost anywhere.
