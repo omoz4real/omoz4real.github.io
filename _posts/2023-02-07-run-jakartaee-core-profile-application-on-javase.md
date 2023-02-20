@@ -8,8 +8,7 @@ In this blog post, I want to explore running a Jakarta EE Core profile applicati
 Java/Jakarta Experts - Markus Karg, Rudy De Busscher and Francesco Marchioni have already blogged and demonstrated how to achieve 
 this on their blog respectively at [Coding Microservice From Scratch](https://headcrashing.wordpress.com/tag/java-se-bootstrap-api/){:target="_blank"}, [Run your Jakarta Application without Runtime](https://www.atbash.be/2023/01/05/run-your-jakarta-application-without-runtime/){:target="_blank"}
 and [Getting started with Jakarta RESTful Services](http://www.mastertheboss.com/jboss-frameworks/resteasy/getting-started-with-jakarta-restful-services/){:target="_blank"}. I wanted to take
-this further and explore the possibilities/ways to create a Jakarta REST CRUD application. This project is build using Netbeans, Maven and
-the Jakarta EE core profile.
+this further and explore the possibilities/ways to create a JAX-RS/Jakarta REST CRUD application. 
 
 The Jakarta RESTful web service API built in this tutorial is for CRUD Operations (Create, Read, Update, Delete) which corresponds to the standard
 HTTP methods (POST, GET, PUT, DELETE) and in this blog post used for managing employee data. 
