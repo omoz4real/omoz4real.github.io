@@ -14,8 +14,6 @@ the Jakarta EE core profile.
 The Jakarta RESTful web service API built in this tutorial is for CRUD Operations (Create, Read, Update, Delete) which corresponds to the standard
 HTTP methods (POST, GET, PUT, DELETE) and in this blog post used for managing employee data. 
 
-I believe the main advantage of this is that you can package your Jarkata REST application into a JAR file which can be executed almost anywhere.
-
 
 First, Create a Java with Maven > Java Application with Netbeans and add the following dependency to the pom.xml. 
 In addition to the Jakarta Core Profile, Dependencies to support JSON-B, JSON-P, HTTP Server, and Jersey + Weld integration is also added to the pom.xml file of the project and
@@ -172,13 +170,13 @@ public class CoreprofileApp {
 
 ```
 
-Next Create a META-INF folder inside the src/main/resources directory, and add an empty beans.xml file to it. The beans.xml file should look like this
+Next Create a **META-INF** folder inside the **src/main/resources** directory, and add an empty **beans.xml** file to it. The beans.xml file should look like this
 
 ```xml
 <beans/>
 ```
 
-Next, Create a Java Class named Employee.java to be used as the domain model for the application. The Restful web services that is about to be created would allow 
+Next, Create a Java Class named **Employee.java** to be used as the domain model for the application. The Restful web services that is about to be created would allow 
 clients to perform CRUD operations on this Employee class. The Employee.java class is shown below
 
 ```java
@@ -218,8 +216,8 @@ public class Employee {
 
 ```
 
-Next, Create an EmployeeService.java class that will be used for our DAO (Data Access Object) to manage CRUD operations on the Employee object. In this project, A list is used
-for the database/datasource to store the Employee data and keep things simple as no real database is used. The EmployeeService.java class looks like this:
+Next, Create an **EmployeeService.java** class that will be used for our DAO (Data Access Object) to manage CRUD operations on the Employee object. In this project, A list is used
+for the database/datasource to store the Employee data to keep things simple as no real database is used. The EmployeeService.java class looks like this:
 
 ```java
 package omos.microsystems.coreprofile.app;
@@ -288,7 +286,7 @@ public class EmployeeService {
 
 ```
 
-Next, Create an EmployeeResource.java class that provides the REST API endpoints/URIs for the application. The EmployeeResource.java
+Next, Create an **EmployeeResource.java** class that provides the REST API endpoints/URIs for the application. The EmployeeResource.java
 class should look like this
 
 ```java
@@ -368,24 +366,27 @@ public class EmployeeResource {
 }
 
 ```
-In the EmployeeResource.java class shown above, we use the
+In the EmployeeResource.java class shown above,
 
-@Path annotation define in the class to specify the URI path to which the resource responds.
+*We use the**@Path** annotation defined in the class to specify the URI path to which the resource responds.
 
-We use the @Inject to inject the EmployeeService. 
+*We use the **@Inject** to inject the EmployeeService. 
 
-We annotate the getAll() method with the @GET annotation which corresponds to the HTTP GET Request method 
+*We annotate the **getAll()** method with the @GET annotation which corresponds to the HTTP GET Request method 
 which returns a list of Employee in JSON format. 
 
-We annotate the add(Employee employee) method with the @POST annotation which corresponds to the HTTP POST Request method and 
+*We annotate the **add(Employee employee)** method with the @POST annotation which corresponds to the HTTP POST Request method and 
 is used to add a new Employee of JSON content type.
 
-We annotate the update(@PathParam("id") int id, Employee employee) method with the @PUT annotation which corresponds to the HTTP PUT Request method and takes the ID of the 
+*We annotate the **update(@PathParam("id") int id, Employee employee)** method with the **@PUT** annotation which corresponds to the HTTP PUT Request method and takes the ID of the 
 Employee which is passed as a path parameter to the Request URI using the @PathParam annotation and updates an existing item with the ID passed to it as a path parameter passed to it in the Request URI.
 
-We annotate the getEmployee(@PathParam("id") int id) method with the @GET annotation and also annotate this method with @Path("{id}") which returns information
-of a specific employee based on the supplied ID given in the URI and returns a plain text format using the @Produces(MediaType.TEXT_PLAIN) annotation.
+*We annotate the **getEmployee(@PathParam("id") int id)** method with the **@GET** annotation and also annotate this method with **@Path("{id}")** which returns information
+of a specific employee based on the supplied ID given in the URI in plain text format using the **@Produces(MediaType.TEXT_PLAIN)** annotation.
 
-We annotate the delete(@PathParam("id") int id) method with the @DELETE annotation which corresponds to HTTP DELETE method and deletes an Employee object
+*We annotate the **delete(@PathParam("id") int id)** method with the **@DELETE** annotation which corresponds to HTTP DELETE method and deletes an Employee object
 that matches the ID of the Employee passed to it as a path parameter in the Request URI.
  
+
+
+I believe the main advantage of this is that you can package your Jarkata REST application into a JAR file which can be executed almost anywhere.
