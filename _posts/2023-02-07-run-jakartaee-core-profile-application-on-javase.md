@@ -103,17 +103,6 @@ is explained more in details here by Rudy - [Run your Jakarta Application withou
     
 </project>
 ```
-The Jakarta Core Profile has the following api's - 
-
-* jakarta.annotation-api-2.1.1
-* jakarta.enterprise.cdi-api-4.0.1
-* jakarta.enterprise.lang-model-4.0.1
-* jakarta.inject-api-2.0.1
-* jakarta.interceptor-api-2.0.1
-* jakarta.json-api-2.1.0
-* jakarta.json.bind-api-3.0.0
-* jakarta.ws.rs-api-3.1.0
-
 
 Next, Create the Java Class that extends the Application class in Jakarta REST. The Java Class for this is shown below
 
