@@ -22,54 +22,71 @@ is explained more in details here by Rudy - [Run your Jakarta Application withou
 ```xml
 
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>  
+    
     <groupId>omos.microsystems.coreprofile.app</groupId>
     <artifactId>coreprofile-app</artifactId>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
+
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jersey.version>3.1.0</jersey.version>
-        <exec.mainClass>omos.microsystems.coreprofile.app.CoreprofileApp</exec.mainClass>
     </properties>
-    
+
     <dependencies>
         <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-core-api</artifactId>
             <version>10.0.0</version>
             <scope>provided</scope>
-        </dependency>       
+        </dependency>
+
+        <!-- Jersey + Weld -->
         <dependency>
             <groupId>org.glassfish.jersey.inject</groupId>
             <artifactId>jersey-cdi2-se</artifactId>
             <version>${jersey.version}</version>
         </dependency>
+
+        <!-- JSON-B Support -->
         <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-json-binding</artifactId>
             <version>${jersey.version}</version>
         </dependency>
+
+        <!-- JSON-P Support -->
         <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-json-processing</artifactId>
             <version>${jersey.version}</version>
         </dependency>
+
+        <!--  HTTP server-->
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-jdk-http</artifactId>
             <version>${jersey.version}</version>
-        </dependency>    
+        </dependency>
+
+        <!-- Need this to hide warning for a default provider MessageBodyWriter was not found. -->
         <dependency>
             <groupId>jakarta.activation</groupId>
             <artifactId>jakarta.activation-api</artifactId>
             <version>2.0.1</version>
-        </dependency>     
+        </dependency>    
     </dependencies>
-    
-     <profiles>
+
+    <build>
+        <finalName>coreprofile-app</finalName>
+    </build>
+    <profiles>
         <profile>
             <id>exec</id>
             <build>
@@ -86,9 +103,11 @@ is explained more in details here by Rudy - [Run your Jakarta Application withou
                                 <configuration>
                                     <shadedArtifactAttached>false</shadedArtifactAttached>
                                     <transformers>
-                                        <transformer
-                                            implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                        <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                             <mainClass>omos.microsystems.coreprofile.app.CoreprofileApp</mainClass>
+                                        </transformer>
+                                        <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                                            <resource>META-INF/services/jakarta.ws.rs.ext.RuntimeDelegate</resource>
                                         </transformer>
                                     </transformers>
                                 </configuration>
@@ -99,7 +118,6 @@ is explained more in details here by Rudy - [Run your Jakarta Application withou
             </build>
         </profile>
     </profiles>
-    
 </project>
 ```
 
@@ -163,6 +181,9 @@ Next Create a **META-INF** folder inside the **src/main/resources** directory, a
 ```xml
 <beans/>
 ```
+The project directory structure is a standard Maven directory structure and looks like the image shown below
+
+![Project Directory Structure](https://omoz4real.github.io/img/icons/project_structure.png)
 
 Next, Create a Java Class named **Employee.java** to be used as the domain model for the application. The Restful web services that is about to be created would allow 
 clients to perform CRUD operations on this Employee class. The Employee.java class is shown below
@@ -214,9 +235,11 @@ import jakarta.enterprise.context.ApplicationScoped;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @ApplicationScoped
 public class EmployeeService {
+
+    public EmployeeService() {
+    }
 
     static List<Employee> employeeList = new ArrayList();
 
@@ -238,22 +261,10 @@ public class EmployeeService {
         return newId;
     }
 
-    public Employee getEmployee(int id) {
-        Employee empToFind = new Employee(id);
-        int index = employeeList.indexOf(empToFind);
-        if (index >= 0) {
-            return employeeList.get(index);
-        }
-        return null;
-    }
-
     public void delete(Employee employee) {
-        if (!employeeList.contains(employee)) { 
-           employeeList.add(employee);
-        }
         employeeList.remove(employee);
     }
-
+    
     public boolean update(Employee employee) {
         int index = employeeList.indexOf(employee);
         if (index >= 0) {
@@ -267,9 +278,6 @@ public class EmployeeService {
         return employeeList;
     }
 
-    public Employee findById(int index) {
-        return employeeList.get(index);
-    }
 }
 
 ```
@@ -304,8 +312,8 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 import java.util.Optional;
-
 
 @Path("/employees")
 @ApplicationScoped
@@ -318,7 +326,8 @@ public class EmployeeResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response getAll() {
-        return Response.ok(employeeService.getAllEmployees()).build();
+        List<Employee> result = employeeService.getAllEmployees();
+        return Response.ok(result).build();
     }
 
     @POST
@@ -333,21 +342,22 @@ public class EmployeeResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("{id}")
     public Response update(@PathParam("id") int id, Employee employee) {
-        Employee updateEmployee = employeeService.findById(id);
+        Optional<Employee> match = employeeService.getAllEmployees().stream().filter(c -> c.getId() == id).findFirst();
+        Employee updateEmployee = match.get();
         updateEmployee.setFirstname(employee.getFirstname());
         updateEmployee.setLastname(employee.getLastname());
         updateEmployee.setJobTitle(employee.getJobTitle());
         employeeService.update(updateEmployee);
         return Response.ok().build();
-    }
-
+    }   
+    
     @GET
     @Path("{id}")
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     public String getEmployee(@PathParam("id") int id) {
         Optional<Employee> match = employeeService.getAllEmployees().stream().filter(c -> c.getId() == id).findFirst();
         if (match.isPresent()) {
-            return "   ----------------    Employee Details:    ----------------   \n\n" + match.get().toString();
+            return "   ----------------Employee Details:----------------   \n\n" + match.get().toString();
         } else {
             return "Employee not found";
         }
@@ -356,10 +366,13 @@ public class EmployeeResource {
     @DELETE
     @Path("{id}")
     public Response delete(@PathParam("id") int id) {
-        Employee getEmployee = employeeService.findById(id);
-        employeeService.delete(getEmployee);
+        Optional<Employee> match = employeeService.getAllEmployees().stream().filter(c -> c.getId() == id).findFirst();
+        Employee newEmployee = match.get();
+        employeeService.delete(newEmployee);       
         return Response.ok().build();
     }
+
+
 }
 
 ```
@@ -383,6 +396,8 @@ of a specific employee based on the supplied ID given in the URI in plain text f
 
 * We annotate the **delete(@PathParam("id") int id)** method with the **@DELETE** annotation which corresponds to HTTP DELETE Request method and deletes an Employee object
 that matches the ID of the Employee passed to it as a path parameter in the Request URI.
+
+## Testing the REST Service
  
 
 
