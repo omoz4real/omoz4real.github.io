@@ -399,7 +399,38 @@ that matches the ID of the Employee passed to it as a path parameter in the Requ
 
 ## Testing the REST Service
  
+To test the REST Service, Open a Terminal or Command Prompt and navigate to the project directory and type the command
+below to compile, package and build an executable jar
+
+```java
+
+mvn clean package -Pexec
+
+```
+The above command produces an executable jar file with name **"finalprojectname".jar** which is located in the **target** directory.
+
+Execute the jar file with the following command java -jar pathToJar
+
+```
+java -jar target/coreprofile-app.jar
+
+```
+The output produced from this command on a terminal should look similar to the output shown below
+
+![Terminal Output](https://omoz4real.github.io/img/icons/command_output.png)
+
+This indicates that the JAX-RS/Jakarta REST HTTP server is running with the Jakarta REST service.
+
+Testing the service can be done by either through the browser or using the curl command from the Terminal.
+
+### Testing the REST Service with a Browser
+
+To test the web service through a browser, open Google Chrome or a browser of your choice and enter the follwing URL
+http://localhost:8080/employees in the address bar to return a list of all the employees in available in the ArrayList. the result is shown below
 
 
 
-I believe the main advantage of this is that you can package your Jarkata REST application into a JAR file which can be executed almost anywhere.
+
+
+
+
