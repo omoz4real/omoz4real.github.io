@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Run a Jakarta EE Core profile application on Java SE"
-date: 2023-02-20 
+date: 2023-02-24 
 ---
 
 In this blog post, I want to explore running a Jakarta EE Core profile application on Java SE without an application server.
@@ -421,12 +421,110 @@ The output produced from this command on a terminal should look similar to the o
 
 This indicates that the JAX-RS/Jakarta REST HTTP server is running with the Jakarta REST service.
 
-Testing the service can be done by either through the browser or using the curl command from the Terminal.
+Testing the service can be done either with the browser or using the curl command from the Terminal.
 
 ### **Testing the REST Service with a Browser**
 
 To test the web service through a browser, open Google Chrome or a browser of your choice and enter the follwing URL
-**http://localhost:8080/employees** in the address bar which returns a list of all the employees in the ArrayList.
+**http://localhost:8080/employees** in the address bar which returns a list of all the employees in the ArrayList as shown below
+
+![Get All Employees Output](https://omoz4real.github.io/img/icons/test-rest-on-chrome.png)
+
+To get an Employee with an ID of 1 in the web browser, enter **http://localhost:8080/employees/1** in the address bar with the output shown below
+
+![Get Employee with ID 1](https://omoz4real.github.io/img/icons/employee_with_id.png)
+
+### **Testing the REST Service with curl**
+
+To test the **HTTP GET** method to get all the Employees, enter the following command in a Termanl to test with the curl network utility.
+
+``` curl
+
+curl -X GET -i http://localhost:8080/employees
+
+```
+
+The output of the above command is shown below
+
+![Output](https://omoz4real.github.io/img/icons/output_1.png)
+
+To get an Employee with an ID of 1, type the following in a terminal 
+
+``` curl
+
+curl -X GET -i http://localhost:8080/employees/1
+
+```
+
+
+An Employee with ID of 1 id is found and returned as shown in the output below 
+
+![Output](https://omoz4real.github.io/img/icons/output_2.png)
+
+
+To test the **HTTP POST** method to add a new Employee Object to the ArrayList, type the following command
+
+``` curl
+
+curl -X POST -i http://localhost:8080/employees -H 'Content-Type: application/json' -d '{"firstname":"Davor","lastname":"Suker", "jobTitle": "Electrician"}'
+
+```
+
+The response from the server shows the following information
+
+![Output](https://omoz4real.github.io/img/icons/output_3.png)
+
+
+This can be confirmed by using the curl -X GET -i http://localhost:8080/employees command again to view the newly created Employee. The output is
+
+
+![Output](https://omoz4real.github.io/img/icons/output_4.png)
+
+To test the **HTTP PUT** method to update an Employee, enter the following command to update an Employee with ID - 2. Note that the ID of the Employee is passed as a path parameter in the request URI.
+
+``` curl
+
+curl -X PUT -i http://localhost:8080/employees/2 -H 'Content-Type: application/json' -d '{"firstname": "Shawn", "lastname":"Michaels", "jobTitle": "Admin"}'
+
+```
+To verify the update, enter the following command
+
+``` curl
+
+curl -X GET -i http://localhost:8080/employees/2
+
+```
+
+The output is 
+
+![Output](https://omoz4real.github.io/img/icons/output_5.png)
+
+
+To test for the **HTTP DELETE method**, enter the following in the terminal to delete an Employee with ID - 3. Notice that the ID of the Employee is passed as a path parameter in the request URI.
+
+``` curl
+
+curl -X DELETE -i http://localhost:8080/employees/3 -H "Accept: application/json"
+
+```
+This would remove the Employee with ID of 3. To verify this, When you try to view the list of Employees again with **curl -X GET -i http://localhost:8080/employees**, you will verify that the Employee with an ID of 3 has been removed/deleted as shown in the output below.
+
+![Output](https://omoz4real.github.io/img/icons/output_6.png)
+
+I believe the main advantage of this is that you can package your JAX-RS/Jarkata REST application into a single executable JAR file which can be executed almost anywhere.
+
+
+
+#### **REFERENCES:**
+
+* [Run your Jakarta Application without Runtime](https://www.atbash.be/2023/01/05/run-your-jakarta-application-without-runtime/){:target="_blank"}
+
+* [Coding Microservice From Scratch](https://headcrashing.wordpress.com/tag/java-se-bootstrap-api/){:target="_blank"}
+
+* [Getting started with Jakarta RESTful Services](http://www.mastertheboss.com/jboss-frameworks/resteasy/getting-started-with-jakarta-restful-services/){:target="_blank"}
+
+
+
 
 
 
