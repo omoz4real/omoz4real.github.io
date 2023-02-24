@@ -497,7 +497,7 @@ curl -X GET -i http://localhost:8080/employees/2
 
 The output is 
 
-![Output](https://omoz4real.github.io/img/icons/output_5.png)
+![Output](https://omoz4real.github.io/img/icons/output_7.png)
 
 
 To test for the **HTTP DELETE method**, enter the following in the terminal to delete an Employee with ID - 3. Notice that the ID of the Employee is passed as a path parameter in the request URI.
