@@ -457,7 +457,7 @@ curl -X GET -i http://localhost:8080/employees/1
 ```
 
 
-An Employee with ID of 1 id is found and returned as shown in the output below 
+An Employee with ID of 1 is found and returned as shown in the output below 
 
 ![Output](https://omoz4real.github.io/img/icons/output_2.png)
 
@@ -511,7 +511,7 @@ This would remove the Employee with ID of 3. To verify this, When you try to vie
 
 ![Output](https://omoz4real.github.io/img/icons/output_6.png)
 
-I believe the main advantage of this is that you can package your JAX-RS/Jarkata REST application into a single executable JAR file which can be executed almost anywhere.
+Now we have a JAX-RS/Jakarta REST application packaged in an executable JAR file which can be run almost anywhere.
 
 
 
@@ -523,7 +523,7 @@ I believe the main advantage of this is that you can package your JAX-RS/Jarkata
 
 * [Getting started with Jakarta RESTful Services](http://www.mastertheboss.com/jboss-frameworks/resteasy/getting-started-with-jakarta-restful-services/){:target="_blank"}
 
-
+* [Creating a Basic REST Web Service using Grizzly, Jersey, and Maven](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/griz_jersey_intro/Grizzly-Jersey-Intro.html){:target="_blank"}
 
 
 
