@@ -183,6 +183,7 @@ Next Create a **META-INF** folder inside the **src/main/resources** directory, a
 ```
 The project directory structure is a standard Maven directory structure and looks like the image shown below
 
+######## **Project Structure**
 ![Project Directory Structure](https://omoz4real.github.io/img/icons/project_structure.png)
 
 Next, Create a Java Class named **Employee.java** to be used as the domain model for the application. The Restful web services that is about to be created would allow 
