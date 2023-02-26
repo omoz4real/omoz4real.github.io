@@ -47,26 +47,7 @@ is explained more in details here by Rudy - [Run your Jakarta Application withou
             <scope>provided</scope>
         </dependency>
 
-        <!-- Jersey + Weld -->
-        <dependency>
-            <groupId>org.glassfish.jersey.inject</groupId>
-            <artifactId>jersey-cdi2-se</artifactId>
-            <version>${jersey.version}</version>
-        </dependency>
 
-        <!-- JSON-B Support -->
-        <dependency>
-            <groupId>org.glassfish.jersey.media</groupId>
-            <artifactId>jersey-media-json-binding</artifactId>
-            <version>${jersey.version}</version>
-        </dependency>
-
-        <!-- JSON-P Support -->
-        <dependency>
-            <groupId>org.glassfish.jersey.media</groupId>
-            <artifactId>jersey-media-json-processing</artifactId>
-            <version>${jersey.version}</version>
-        </dependency>
 
         <!--  HTTP server-->
         <dependency>
@@ -420,9 +401,9 @@ The output produced from this command on a terminal should look similar to the o
 
 ![Terminal Output](https://omoz4real.github.io/img/icons/command_output.png)
 
-This indicates that the JAX-RS/Jakarta REST HTTP server is running with the Jakarta REST service.
+This indicates that the jersey HTTP server is running with the JAX-RS/Jakarta REST service API/endpoints.
 
-Testing the service can be done either with the browser or using the curl command from the Terminal.
+Testing the service can be done either through the browser or using the curl command from the Terminal.
 
 ### **Testing the REST Service with a Browser**
 
