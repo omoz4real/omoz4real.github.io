@@ -47,7 +47,26 @@ is explained more in details here by Rudy - [Run your Jakarta Application withou
             <scope>provided</scope>
         </dependency>
 
+        <!-- Jersey + Weld -->
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-cdi2-se</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
 
+        <!-- JSON-B Support -->
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-binding</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+
+        <!-- JSON-P Support -->
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-processing</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
 
         <!--  HTTP server-->
         <dependency>
@@ -61,7 +80,8 @@ is explained more in details here by Rudy - [Run your Jakarta Application withou
             <groupId>jakarta.activation</groupId>
             <artifactId>jakarta.activation-api</artifactId>
             <version>2.0.1</version>
-        </dependency>    
+        </dependency>     
+
     </dependencies>
 
     <build>
